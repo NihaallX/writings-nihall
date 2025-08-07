@@ -1,3 +1,4 @@
+import NavBar from "../components/NavBar";
 import { promises as fs } from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -6,8 +7,6 @@ import StoryShowcase, { Story } from "../components/StoryShowcase";
 import AboutMe from "../components/AboutMe";
 import ThemeToggle from "../components/ThemeToggle";
 import SecretWriterMode from "../components/SecretWriterMode";
-import AnimatedIntro from "../components/AnimatedIntro";
-import "../styles/cozy-header.css";
 
 export default async function Home() {
   // Load all markdown files from /stories at build/runtime
@@ -27,13 +26,27 @@ export default async function Home() {
   );
 
   return (
-    <>
+    <div className="min-h-screen relative bg-gradient-to-br from-[#18181a] via-[#232323] to-[#101012] overflow-x-hidden">
+      {/* Blond Album Cover Floating Top Left */}
+      <div className="fixed top-28 left-8 z-40" style={{ pointerEvents: 'none' }}>
+        <img
+          src="/blond-cover.jpg"
+          alt="Blond album cover by Frank Ocean"
+          className="w-16 h-16 md:w-24 md:h-24 rounded-2xl shadow-2xl object-cover border-4 border-white/20 bg-white/80"
+          style={{ boxShadow: '0 8px 32px 0 rgba(0,0,0,0.22)' }}
+        />
+      </div>
+      {/* Vignette/Grain Overlay */}
+      <div className="pointer-events-none fixed inset-0 z-0" style={{background: 'radial-gradient(ellipse at center, rgba(0,0,0,0) 60%, rgba(0,0,0,0.25) 100%), url(/grain.png) repeat', opacity: 0.45}} />
+      <NavBar />
+      {/* Move ThemeToggle below nav bar */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <ThemeToggle />
+      </div>
       <SecretWriterMode />
-      <ThemeToggle />
-      <header className="w-full flex justify-center items-center py-8 border-b border-foreground/10 bg-background/80 sticky top-0 z-40">
-        <h1 className="cozy-header text-4xl md:text-5xl tracking-tight text-foreground drop-shadow-sm">Seigfried</h1>
-      </header>
-      <main className="flex flex-col items-center justify-center min-h-[70vh] bg-background text-foreground px-4">
+      {/* ...Spotify embed removed as requested... */}
+      {/* Blond Album Cover in About Me */}
+      <main className="flex flex-col items-center justify-center min-h-[70vh] text-white px-4">
         <div className="w-full max-w-4xl flex flex-col items-center">
           <StoryShowcase stories={stories} />
         </div>
@@ -41,9 +54,10 @@ export default async function Home() {
           <AboutMe />
         </div>
       </main>
-      <footer className="w-full py-6 flex justify-center items-center border-t border-foreground/10 bg-background/80 text-foreground/60 text-sm mt-12">
+      {/* ...Floating timeline removed as requested... */}
+      <footer className="w-full py-6 flex justify-center items-center border-t border-white/10 bg-black/80 backdrop-blur-sm text-white/60 text-sm mt-12">
         &copy; {new Date().getFullYear()} Seigfried. Crafted with cozy code.
       </footer>
-    </>
+    </div>
   );
 }

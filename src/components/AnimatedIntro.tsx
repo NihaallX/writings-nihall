@@ -18,7 +18,7 @@ export default function AnimatedIntro() {
         transition={{ delay: 0.5, duration: 1.2, ease: "easeOut" }}
         className="font-cursive text-xl md:text-2xl text-center text-foreground/80 max-w-2xl mb-12"
       >
-        "Where stories drift like rain on glass, and words glow softly in the dusk."
+        &quot;Where stories drift like rain on glass, and words glow softly in the dusk.&quot;
       </motion.p>
     </>
   );

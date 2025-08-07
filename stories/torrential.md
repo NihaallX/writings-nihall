@@ -1,35 +1,29 @@
 ---
-title: "Torrential"
-date: "2025-07-09"
+title: "some stories, unfinished"
+date: "2023-08-xx"
 preview: "nostalgic reflections on a rainy day, where every drop tells a story."
 ---
 
-**Torrential**
+It was the first day of college, and we were in the introduction- phase.
 
-*by Nihall*
+As soon as I saw her, I couldn't take my eyes off her. 
 
-It was raining heavily
+My friend said she was okayish, but I thought she was gorgeous.
 
-8:02 PM, the walls of my house silent but listening.
+I clearly remember the exact moment our eyes met and we had a spark. 
 
-Over a year since we shifted here,
-yet the monsoon still taps like it's checking in on me.
+I hoped we both knew it meant something.
 
-Mom, cooking in the kitchen,
-hands me a plate of kanda bhajis.
+Over the next two weeks, our eyes met multiple times, but we still didn't talk to each other. 
 
-She nods toward the downpour,
-says, “Look at the rain. It’s torrential.”
+I vividly remember the day we finally had a conversation. She gave me her book to copy some questions, and our eyes met, and our hands touched. 
 
-Vocabulary check ,yep, she meant it.
+I returned the book only to realize that something cute awaited me. 
 
-For a breath,
-I’m not here.
+She teased our mutual friend, addressing me, and we shared a laugh. 
 
-I’m back in that old room.
+She was sitting in the parallel row, and she rested her hand on my table. I glared at her, and she had a smirk. 
 
-Nothing fancy just a flicker.
+She fumbled and said, "I forgot what I was going to say," and was embarrassed. She didn't even look at me for a while. 
 
-Then snap. I’m home again.
-
-Still, my eyes drift
+But when I was drinking water, I saw her staring at me from the corner of my eye, and I still didn't look at her.
