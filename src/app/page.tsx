@@ -7,6 +7,7 @@ import StoryShowcase, { Story } from "../components/StoryShowcase";
 import AboutMe from "../components/AboutMe";
 import ThemeToggle from "../components/ThemeToggle";
 import SecretWriterMode from "../components/SecretWriterMode";
+import Image from "next/image";
 
 export default async function Home() {
   // Load all markdown files from /stories at build/runtime
@@ -29,9 +30,11 @@ export default async function Home() {
     <div className="min-h-screen relative bg-gradient-to-br from-[#18181a] via-[#232323] to-[#101012] overflow-x-hidden">
       {/* Blond Album Cover Floating Top Left */}
       <div className="fixed top-28 left-8 z-40" style={{ pointerEvents: 'none' }}>
-        <img
+        <Image
           src="/blond-cover.jpg"
           alt="Blond album cover by Frank Ocean"
+          width={96} // Adjust dimensions as needed
+          height={96} // Adjust dimensions as needed
           className="w-16 h-16 md:w-24 md:h-24 rounded-2xl shadow-2xl object-cover border-4 border-white/20 bg-white/80"
           style={{ boxShadow: '0 8px 32px 0 rgba(0,0,0,0.22)' }}
         />

@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { Eczar, EB_Garamond, Satisfy } from "next/font/google";
+import { Eczar } from "next/font/google";
 import "./globals.css";
 
 const eczar = Eczar({ subsets: ["latin"], weight: ["400", "700"] });
-const garamond = EB_Garamond({ subsets: ["latin"], weight: ["400", "700"] });
-const satisfy = Satisfy({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
