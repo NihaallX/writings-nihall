@@ -4,27 +4,54 @@ import path from "path";
 import matter from "gray-matter";
 import { marked } from "marked";
 import StoryShowcase, { Story } from "../components/StoryShowcase";
+import { calculateReadingTime } from "../utils/readingTime";
+
+async function loadStories(): Promise<Story[]> {
+  try {
+    const storiesDir = path.join(process.cwd(), "stories");
+    const files = await fs.readdir(storiesDir);
+    
+    const storyPromises = files
+      .filter(f => f.endsWith(".md"))
+      .map(async (file): Promise<Story | null> => {
+        try {
+          const filePath = path.join(storiesDir, file);
+          const raw = await fs.readFile(filePath, "utf-8");
+          const { data, content } = matter(raw);
+          
+          const htmlContent = await marked(content);
+          
+          return {
+            title: data.title || file.replace('.md', ''),
+            preview: data.preview || "A story waiting to be discovered...",
+            content: htmlContent,
+            date: data.date ? new Date(data.date) : new Date(),
+            readingTime: calculateReadingTime(content),
+          };
+        } catch (error) {
+          console.error(`Error loading story ${file}:`, error);
+          return null;
+        }
+      });
+    
+    const storyResults = await Promise.all(storyPromises);
+    
+    return storyResults
+      .filter((story): story is Story => story !== null)
+      .sort((a, b) => (b.date?.getTime() || 0) - (a.date?.getTime() || 0));
+      
+  } catch (error) {
+    console.error("Error loading stories directory:", error);
+    return [];
+  }
+}
 import AboutMe from "../components/AboutMe";
 import ThemeToggle from "../components/ThemeToggle";
 import SecretWriterMode from "../components/SecretWriterMode";
 import Image from "next/image";
 
 export default async function Home() {
-  // Load all markdown files from /stories at build/runtime
-  const storiesDir = path.join(process.cwd(), "stories");
-  const files = await fs.readdir(storiesDir);
-  const stories: Story[] = await Promise.all(
-    files.filter(f => f.endsWith(".md")).map(async (file) => {
-      const filePath = path.join(storiesDir, file);
-      const raw = await fs.readFile(filePath, "utf-8");
-      const { data, content } = matter(raw);
-      return {
-        title: data.title,
-        preview: data.preview,
-        content: await marked(content),
-      };
-    })
-  );
+  const stories = await loadStories();
 
   return (
     <div className="min-h-screen relative bg-gradient-to-br from-[#18181a] via-[#232323] to-[#101012] overflow-x-hidden">

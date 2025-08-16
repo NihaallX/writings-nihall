@@ -6,6 +6,8 @@ export type Story = {
   title: string;
   preview: string;
   content: string;
+  date?: Date;
+  readingTime?: number;
 };
 
 interface StoryShowcaseProps {
@@ -64,7 +66,14 @@ export default function StoryShowcase({ stories }: StoryShowcaseProps) {
             whileHover={{ scale: 1.03 }}
           >
             <div className="flex-1 flex flex-col justify-between">
-              <h3 className="font-serif text-2xl font-semibold text-white mb-2 line-clamp-2 group-hover:text-rose-200 transition-colors duration-200">{story.title || <span className="italic text-white/40">Untitled</span>}</h3>
+              <div>
+                <h3 className="font-serif text-2xl font-semibold text-white mb-2 line-clamp-2 group-hover:text-rose-200 transition-colors duration-200">{story.title || <span className="italic text-white/40">Untitled</span>}</h3>
+                {story.readingTime && (
+                  <span className="text-xs text-white/50 mb-2 block">
+                    {story.readingTime} min read
+                  </span>
+                )}
+              </div>
               <p className="text-base text-white/70 mb-4 line-clamp-3">{story.preview || "No preview available."}</p>
             </div>
             <button
